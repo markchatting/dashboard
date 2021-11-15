@@ -28,9 +28,11 @@ result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
 values = result.get('values', [])
 print(values)
 
+# Turn sheet into dataframe
 df = pd.DataFrame(values, columns=values[0])
 df['year'].astype(str)
 
+# Subset out the year 2021 to do operations on single year data for figs
 this_year = df[df['year'] == '2021']
 this_year['date'] = pd.to_datetime(this_year['nest date'])
 this_year.sort_values(by='date')
@@ -56,6 +58,7 @@ labels = all_nests['Location']
 sizes = all_nests['nest date']
 # explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
+# Calculate cuimulative totals (nests and false crawls) for the current year
 cum_count = this_year.groupby(['action', 'date']).agg('count').reset_index()
 nest_cum_count = cum_count[cum_count['action'] == 'Nest']
 nest_cum_count
@@ -96,15 +99,6 @@ fig.add_trace(
 
     row=1, col=1
 )
-
-
-#fig.add_trace(go.Table(header=dict(values=['Date', 'Tag Number', 'CCL', 'CCW', 'Nested?']),
-#                 cells=dict(values=[np.array(tagged['nest date'])[::-1],
-#                                    np.array(tagged['new.tag'])[::-1],
-#                                    np.array(tagged['ccl'])[::-1],
-#                                    np.array(tagged['ccw'])[::-1],
-#                                    np.array(tagged['action'])[::-1]])
-#                ),row=1, col=1)
 
 
 fig.add_trace(
