@@ -56,7 +56,6 @@ fcu_counts = period_counts[period_counts['action'] == 'FCU']
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = all_nests['Location']
 sizes = all_nests['nest date']
-# explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
 # Calculate cuimulative totals (nests and false crawls) for the current year
 cum_count = this_year.groupby(['action', 'date']).agg('count').reset_index()
@@ -170,15 +169,6 @@ fig.add_trace(
     ),
     row=4, col=4
 )
-
-
-#fig.add_trace(
-#    go.Pie(labels=labels,
-#           values=sizes,
-#           showlegend=False
-#    ),
-#    row=1, col=1
-#)
 
 fig.update_layout(
     template='plotly_dark',
