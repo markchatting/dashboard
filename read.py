@@ -42,6 +42,7 @@ per = this_year.replace(np.nan, '', regex=True)
 
 tagged = per[per['new.tag'] != '']
 
+# Aggregating and summing counts of visits @ different sites for the dashboard figs and tables
 all_counts = this_year.groupby(['action', 'Location']).agg('count').reset_index()
 all_nests = all_counts[all_counts['action'] == 'Nest']
 neonates = this_year.groupby(['new.tag']).agg('count').reset_index()
