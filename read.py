@@ -10,7 +10,7 @@ import dash
 mapbox_access_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-SERVICE_ACCOUNT_FILE = 'keys.json'
+SERVICE_ACCOUNT_FILE = 'keys.json' # json file where the keys are stored. I have removed the file.
 
 creds = None
 creds = service_account.Credentials.from_service_account_file(
