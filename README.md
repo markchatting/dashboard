@@ -3,7 +3,7 @@
 Online dashboard that automatically updates with a shared database. Staff memebers update an online database and every time this script is run the dashboard automatically reads the databse and updates. A sample of the automatically generated data vizualizations is shown below.
 
 
-![Capture-01](https://user-images.githubusercontent.com/57613411/142981963-f2c3010d-4a21-4fa1-be0c-ec7d8346f49b.JPG)
+![Capture-01-01](https://user-images.githubusercontent.com/57613411/142982125-c7b018fe-cc5a-4c5c-9520-5ab28ea69caf.JPG)
 
 
 
