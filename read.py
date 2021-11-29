@@ -74,7 +74,6 @@ for i in range(0, (len(nest_freq) - 1)):
 
 cum_date = Date[1:len(Date)]
 
-
 fig = make_subplots(
     rows = 4, cols = 6,
     specs=[
@@ -99,7 +98,6 @@ fig.add_trace(
 
     row=1, col=1
 )
-
 
 fig.add_trace(
     go.Indicator(
@@ -189,6 +187,5 @@ fig.update_layout(
         style='light'
     ),
 )
-
 
 fig.write_html('Project title.html', auto_open=True)
